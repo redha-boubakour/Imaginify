@@ -65,6 +65,9 @@ module.exports = {
                     foreground: "hsl(var(--card-foreground))",
                 },
             },
+            fontFamily: {
+                fontRoboto: ["var(--font-roboto)"],
+            },
             backgroundImage: {
                 "purple-gradient": "url('/assets/images/gradient-bg.svg')",
                 banner: "url('/assets/images/banner-bg.png')",
