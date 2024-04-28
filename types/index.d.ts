@@ -6,14 +6,14 @@ declare type CreateUserParams = {
     email: string;
     userName: string;
     firstName: string | null;
-    lastName: string | null;
+    lastname: string | null;
     photo: string;
 };
 
 declare type UpdateUserParams = {
     firstName: string | null;
     lastName: string | null;
-    userName: string;
+    username: string;
     photo: string;
 };
 
