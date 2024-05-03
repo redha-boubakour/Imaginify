@@ -16,7 +16,7 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "@/app/components/ui/select";
 
 import {
     Form,
@@ -26,12 +26,13 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+} from "@/app/components/ui/form";
+import { Button } from "@/app/components/ui/button";
+import { Input } from "@/app/components/ui/input";
 import { CustomField } from "./CustomField";
 import { ReactNode, useState, useTransition } from "react";
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils";
+import MediaUploader from "./MediaUploader";
 
 export const formSchema = z.object({
     title: z.string(),
@@ -234,6 +235,24 @@ const TransformationForm = ({
                         )}
                     </div>
                 )}
+
+                <div className='mega-uploader-field'>
+                    <CustomField
+                        control={form.control}
+                        name='publicId'
+                        formLabel='Replacement Color'
+                        className='flex size-full flex-col'
+                        render={({ field }) => (
+                            <MediaUploader
+                                onValueChange={field.onChange}
+                                setImage={setImage}
+                                publicId={field.value}
+                                image={image}
+                                type={type}
+                            />
+                        )}
+                    />
+                </div>
 
                 <div className='flex flex-col gap-4'>
                     <Button
