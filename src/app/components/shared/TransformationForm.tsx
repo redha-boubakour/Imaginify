@@ -85,7 +85,6 @@ const TransformationForm = ({
         console.log(values);
     }
 
-    // 3. Handle the select.
     const onSelectFieldHandler = (
         value: string,
         onChangeField: (value: string) => void
@@ -236,11 +235,10 @@ const TransformationForm = ({
                     </div>
                 )}
 
-                <div className='mega-uploader-field'>
+                <div className='media-uploader-field'>
                     <CustomField
                         control={form.control}
                         name='publicId'
-                        formLabel='Replacement Color'
                         className='flex size-full flex-col'
                         render={({ field }) => (
                             <MediaUploader
