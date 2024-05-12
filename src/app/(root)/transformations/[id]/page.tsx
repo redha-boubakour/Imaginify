@@ -7,6 +7,7 @@ import TransformedImage from "@/app/components/shared/TransformedImage";
 import { Button } from "@/app/components/ui/button";
 import { getImageById } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
+import { DeleteConfirmation } from "@/app/components/shared/DeleteConfirmation";
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
     const { userId } = auth();
@@ -113,6 +114,8 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
                                 Update Image
                             </Link>
                         </Button>
+
+                        <DeleteConfirmation imageId={image._id} />
                     </div>
                 )}
             </section>

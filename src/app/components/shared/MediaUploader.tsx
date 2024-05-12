@@ -17,8 +17,8 @@ type MediaUploaderProps = {
 const MediaUploader = ({
     onValueChange,
     setImage,
-    publicId,
     image,
+    publicId,
     type,
 }: MediaUploaderProps) => {
     const { toast } = useToast();
@@ -29,7 +29,7 @@ const MediaUploader = ({
             publicId: result?.info?.public_id,
             width: result?.info?.width,
             height: result?.info?.height,
-            secureURL: result?.info?.secure_URL,
+            secureURL: result?.info?.secure_url,
         }));
 
         onValueChange(result?.info?.public_id);
@@ -61,18 +61,21 @@ const MediaUploader = ({
             {({ open }) => (
                 <div className='flex flex-col gap-4'>
                     <h3 className='h3-bold text-dark-600'>Original</h3>
+
                     {publicId ? (
-                        <div className='cursor-pointer overflow-hidden rounded-[10px]'>
-                            <CldImage
-                                alt={"image"}
-                                src={publicId}
-                                width={getImageSize(type, image, "width")}
-                                height={getImageSize(type, image, "height")}
-                                sizes={"(max-width: 767px) 100vw, 50vw"}
-                                placeholder={dataUrl as PlaceholderValue}
-                                className='media-uploader_cldImage'
-                            />
-                        </div>
+                        <>
+                            <div className='cursor-pointer overflow-hidden rounded-[10px]'>
+                                <CldImage
+                                    width={getImageSize(type, image, "width")}
+                                    height={getImageSize(type, image, "height")}
+                                    src={publicId}
+                                    alt='image'
+                                    sizes={"(max-width: 767px) 100vw, 50vw"}
+                                    placeholder={dataUrl as PlaceholderValue}
+                                    className='media-uploader_cldImage'
+                                />
+                            </div>
+                        </>
                     ) : (
                         <div
                             className='media-uploader_cta'
@@ -80,14 +83,14 @@ const MediaUploader = ({
                         >
                             <div className='media-uploader_cta-image'>
                                 <Image
-                                    src={"/assets/icons/add.svg"}
-                                    alt={"Add Image"}
+                                    src='/assets/icons/add.svg'
+                                    alt='Add Image'
                                     width={24}
                                     height={24}
                                 />
                             </div>
                             <p className='p-14-medium'>
-                                Cleck here to upload the image
+                                Click here to upload image
                             </p>
                         </div>
                     )}
